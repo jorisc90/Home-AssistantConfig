@@ -1,0 +1,23 @@
+- cal_id: "591gujrqshhuiuj8idg03s3nig@group.calendar.google.com"
+  entities:
+    device_id: common_calendar
+    name: Karlijn en Joris
+    track: false
+
+- cal_id: joris.claassen@gmail.com
+  entities:
+  - device_id: jorisclaassengmailcom
+    name: joris.claassen@gmail.com
+    track: false
+
+- cal_id: '#contacts@group.v.calendar.google.com'
+  entities:
+  - device_id: contacts
+    name: Contacts
+    track: true
+
+- cal_id: nl.dutch#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: feestdagen_in_nederland
+    name: Feestdagen in Nederland
+    track: true

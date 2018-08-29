@@ -1,0 +1,25 @@
+- alias: "Buitenlampen aan"
+  trigger:
+    - platform: state
+      entity_id: sun.sun
+      to: "below_horizon"
+#    - platform: time
+#      at: "05:30:00"
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: "below_horizon"
+  action:
+    - service: light.turn_on
+      entity_id: light.buitenlampen
+
+- alias: "Buitenlampen uit"
+  trigger:
+    - platform: state
+      entity_id: sun.sun
+      to: "above_horizon"
+    - platform: time
+      at: "01:00:00"
+  action:
+    - service: light.turn_off
+      entity_id: light.buitenlampen

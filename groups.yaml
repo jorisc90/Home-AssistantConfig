@@ -1,0 +1,52 @@
+default_view:
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.sensors
+    - group.downstairs_light
+    - group.downstairs_vacuum
+    - group.firstfloor
+    - group.outside
+    - media_player.shield
+
+sensors:
+  name: General
+  entities:
+    - sensor.time
+    - sensor.date
+    - sun.sun
+    - sensor.yr_symbol
+
+downstairs_light:
+  name: Lichten beneden
+  entities:
+    - sensor.tradfri_remote_control
+    - light.spots
+    - light.eettafel
+    - light.hal
+    - light.staande
+    - light.lightstrip_tv
+    - light.lightstrip_keuken
+    - light.lichtballen
+    - light.sonoff_3
+    - light.sonoff_4
+
+downstairs_vacuum:
+  name: Stofzuiger beneden
+  entities:
+    - vacuum.raymond
+    - switch.raymond_schedule
+    - camera.raymond_cleaning_map
+
+firstfloor:
+  name: Eerste verdieping
+  entities:
+    - light.computerkamer
+    - light.slaapkamer
+
+outside:
+  name: Buiten
+  entities:
+    - light.buitenlampen
+    - automation.buitenlampen_aan
+    - automation.buitenlampen_uit

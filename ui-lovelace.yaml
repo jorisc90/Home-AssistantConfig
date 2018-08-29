@@ -1,0 +1,53 @@
+title: Heinsiusstraat 36
+# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
+background: center / cover no-repeat url("/background.png") fixed
+# Exclude entities from "Unused entities" view
+excluded_entities:
+views:
+    # View tab title.
+  - title: Beneden
+    # Optional unique id for direct access /lovelace/${id}
+    id: beneden
+    # The cards to show on this view.
+    cards:
+        # The filter card will filter entities for their state
+      - type: entities
+        entities:
+          - sensor.tradfri_remote_control
+          - light.spots
+          - light.eettafel
+          - light.hal
+          - light.staande
+          - light.lightstrip_tv
+          - light.lightstrip_keuken
+          - light.lichtballen
+          - light.sonoff_3
+          - light.sonoff_4
+      - type: media-control
+        entity: media_player.shield
+      - type: picture-glance
+        title: Raymond
+        entities:
+          - vacuum.raymond
+        camera_image: camera.raymond_cleaning_map
+
+  - title: Eerste verdieping
+    id: eersteverdieping
+    cards:
+      - type: entities
+        entities:
+          - light.slaapkamer
+          - light.computerkamer
+
+  - title: Buiten
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: picture
+            image: "http://api.buienradar.nl/image/1.0/RadarMapNL?w=500&h=512"
+          - type: weather-forecast
+            entity: weather.culemborg
+      - type: entities
+        entities:
+          - light.buitenlampen
+          - automation.buitenlampen_aan

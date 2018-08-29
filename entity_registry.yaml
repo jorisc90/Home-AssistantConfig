@@ -1,0 +1,70 @@
+media_player.shield:
+  config_entry_id: 136fbcaebb6a40f0af1772aaf3ebd4c4
+  name:
+  platform: cast
+  unique_id: f43fc9a4-9eb9-8ed3-1aae-def4755afd59
+media_player.55cx700_series:
+  config_entry_id:
+  name:
+  platform: panasonic_viera
+  unique_id: 4D454930-0200-1000-8001-A813744BE3CE
+light.hal_2:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65541
+light.hal_1:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65540
+light.spot_2:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65545
+light.spot_3:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65546
+light.spot_1:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65542
+light.staande:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65537
+light.eettafel_1:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65538
+light.eettafel_2:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65539
+light.spot_4:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65544
+light.slaapkamer_1:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65547
+light.slaapkamer_3:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65550
+light.slaapkamer_2:
+  config_entry_id:
+  name:
+  platform: tradfri
+  unique_id: light-7e0c3d5204c000d4-65549

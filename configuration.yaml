@@ -1,0 +1,182 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Enable logging
+recorder:
+  purge_keep_days: 7
+  purge_interval: 1
+
+# Text to speech
+#tts:
+#  - platform: google
+
+#google:
+#  client_id: !secret google_clientid
+#  client_secret: !secret google_secret
+
+# Enable weather
+weather:
+  - platform: buienradar
+    name: 'Culemborg'
+    latitude: !secret latitude
+    longitude: !secret longitude
+    forecast: True
+
+# Enable light control
+light:
+  - platform: group
+    name: Spots
+    entities:
+      - light.spot_1
+      - light.spot_2
+      - light.spot_3
+      - light.spot_4
+  - platform: group
+    name: Eettafel
+    entities:
+      - light.eettafel_1
+      - light.eettafel_2
+  - platform: group
+    name: Hal
+    entities:
+      - light.hal_1
+      - light.hal_2
+  - platform: group
+    name: Slaapkamer
+    entities:
+      - light.slaapkamer_1
+      - light.slaapkamer_2
+      - light.slaapkamer_3
+
+  - platform: yeelight
+    devices:
+      10.195.1.21:
+        name: Lightstrip TV
+      10.195.1.22:
+        name: Lightstrip Keuken
+      10.195.1.23:
+        name: Computerkamer
+
+  - platform: mqtt
+    name: "Buitenlampen"
+    state_topic: "stat/schuur/POWER"
+    command_topic: "cmnd/schuur/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - platform: mqtt
+    name: "Lichtballen"
+    state_topic: "stat/hoek/POWER"
+    command_topic: "cmnd/hoek/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - platform: mqtt
+    name: "Sonoff 3"
+    state_topic: "stat/bank/POWER"
+    command_topic: "cmnd/bank/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+  - platform: mqtt
+    name: "Sonoff 4"
+    state_topic: "stat/sonoff-4/POWER"
+    command_topic: "cmnd/sonoff-4/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+
+media_player:
+  - platform: panasonic_viera
+    name: TV
+    host: 10.195.1.30
+    mac: 48:A9:D2:6C:5D:CB
+
+mqtt:
+  broker: 10.195.1.251
+  birth_message:
+    topic: "tele/hass1/LWT"
+    payload: "Online"
+    qos: 1
+    retain: true
+  will_message:
+    topic: "tele/hass1/LWT"
+    payload: "Offline"
+    qos: 1
+    retain: true
+
+tradfri:
+  host: 10.195.1.20
+  allow_tradfri_groups: false
+
+#bmw_connected_drive:
+#  name:
+#    username: !secret bmw_user
+#    region: rest_of_world
+#    password: !secret bmw_secret
+
+neato:
+  username: !secret neato_user
+  password: !secret neato_secret
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
